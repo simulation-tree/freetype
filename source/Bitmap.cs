@@ -25,6 +25,15 @@ namespace FreeType
             }
         }
 
+        public readonly int Pitch
+        {
+            get
+            {
+                FT_GlyphSlotRec_* glyph = (FT_GlyphSlotRec_*)address;
+                return glyph->bitmap.pitch;
+            }
+        }
+
         internal Bitmap(nint address)
         {
             this.address = address;

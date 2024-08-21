@@ -20,8 +20,9 @@ namespace FreeType
         }
 
         /// <summary>
-        /// Contains scaled versions of ascender, descender,
-        /// height and max advance values.
+        /// Contains versions of ascender, descender,
+        /// height and max advance values that respect the
+        /// set character pixel size.
         /// </summary>
         public readonly SizeMetrics SizeMetrics
         {
@@ -53,12 +54,12 @@ namespace FreeType
         /// <summary>
         /// A set value for the distance between baseline to baseline.
         /// </summary>
-        public readonly int Height
+        public readonly uint Height
         {
             get
             {
                 FT_FaceRec_* face = (FT_FaceRec_*)value;
-                return (int)face->height;
+                return (uint)face->height;
             }
         }
 
@@ -68,6 +69,16 @@ namespace FreeType
             {
                 FT_FaceRec_* face = (FT_FaceRec_*)value;
                 return ((uint)face->max_advance_width, (uint)face->max_advance_height);
+            }
+        }
+
+        public readonly (int xMin, int xMax, int yMin, int yMax) Bounds
+        {
+            get
+            {
+                FT_FaceRec_* face = (FT_FaceRec_*)value;
+                FT_BBox_ bounds = face->bbox;
+                return ((int)bounds.xMin, (int)bounds.xMax, (int)bounds.yMin, (int)bounds.yMax);
             }
         }
 

@@ -9,12 +9,12 @@ namespace FreeType
         /// <summary>
         /// Dimensions of the glyph image's bounding box.
         /// </summary>
-        public readonly (uint x, uint y) Size
+        public readonly (int x, int y) Size
         {
             get
             {
                 FT_GlyphSlotRec_* glyph = (FT_GlyphSlotRec_*)address;
-                return ((uint)glyph->metrics.width, (uint)glyph->metrics.height);
+                return ((int)glyph->metrics.width, (int)glyph->metrics.height);
             }
         }
 
@@ -27,19 +27,6 @@ namespace FreeType
             {
                 FT_GlyphSlotRec_* glyph = (FT_GlyphSlotRec_*)address;
                 return ((int)glyph->metrics.horiBearingX, (int)glyph->metrics.horiBearingY);
-            }
-        }
-
-        /// <summary>
-        /// Amount of distance to move the cursor to the right for the next glyph,
-        /// for horizontal layouts.
-        /// </summary>
-        public readonly int HorizontalAdvance
-        {
-            get
-            {
-                FT_GlyphSlotRec_* glyph = (FT_GlyphSlotRec_*)address;
-                return (int)glyph->metrics.horiAdvance;
             }
         }
 
@@ -57,14 +44,14 @@ namespace FreeType
 
         /// <summary>
         /// Amount of distance to increment the cursor position
-        /// when using a vertical layout.
+        /// depending on the direction of the text layout.
         /// </summary>
-        public readonly int VerticalAdvance
+        public readonly (int x, int y) Advance
         {
             get
             {
                 FT_GlyphSlotRec_* glyph = (FT_GlyphSlotRec_*)address;
-                return (int)glyph->metrics.vertAdvance;
+                return ((int)glyph->metrics.horiAdvance, (int)glyph->metrics.vertAdvance);
             }
         }
 
