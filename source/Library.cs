@@ -39,19 +39,16 @@ namespace FreeType
             value = default;
         }
 
-        public readonly Face Load(ReadOnlySpan<byte> bytes)
+        public readonly Face Load(byte* bytesPointer, uint bytesLength)
         {
-            fixed (byte* ptr = bytes)
+            FT_FaceRec_* face;
+            FT_Error error = FT_New_Memory_Face((FT_LibraryRec_*)value, bytesPointer, (int)bytesLength, 0, &face);
+            if (error != FT_Error.FT_Err_Ok)
             {
-                FT_FaceRec_* face;
-                FT_Error error = FT_New_Memory_Face((FT_LibraryRec_*)value, ptr, bytes.Length, 0, &face);
-                if (error != FT_Error.FT_Err_Ok)
-                {
-                    throw new Exception($"Failed to load font: {error}");
-                }
-
-                return new((nint)face);
+                throw new Exception($"Failed to load font: {error}");
             }
+
+            return new((nint)face);
         }
     }
 }
