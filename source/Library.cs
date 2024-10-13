@@ -39,8 +39,9 @@ namespace FreeType
             value = default;
         }
 
-        public readonly Face Load(byte* bytesPointer, uint bytesLength)
+        public readonly Face Load(nint bytesAddress, uint bytesLength)
         {
+            byte* bytesPointer = (byte*)bytesAddress;
             FT_FaceRec_* face;
             FT_Error error = FT_New_Memory_Face((FT_LibraryRec_*)value, bytesPointer, (int)bytesLength, 0, &face);
             if (error != FT_Error.FT_Err_Ok)
