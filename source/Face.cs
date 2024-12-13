@@ -38,7 +38,7 @@ namespace FreeType
             get
             {
                 FT_FaceRec_* face = (FT_FaceRec_*)value;
-                return (int)face->ascender;
+                return face->ascender;
             }
         }
 
@@ -47,7 +47,7 @@ namespace FreeType
             get
             {
                 FT_FaceRec_* face = (FT_FaceRec_*)value;
-                return (int)face->descender;
+                return face->descender;
             }
         }
 
