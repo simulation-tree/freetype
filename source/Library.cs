@@ -51,5 +51,20 @@ namespace FreeType
 
             return new((nint)face);
         }
+
+        public readonly Face Load(ReadOnlySpan<byte> bytes)
+        {
+            fixed (byte* bytesPointer = bytes)
+            {
+                FT_FaceRec_* face;
+                FT_Error error = FT_New_Memory_Face((FT_LibraryRec_*)value, bytesPointer, bytes.Length, 0, &face);
+                if (error != FT_Error.FT_Err_Ok)
+                {
+                    throw new Exception($"Failed to load font: {error}");
+                }
+
+                return new((nint)face);
+            }
+        }
     }
 }
