@@ -10,8 +10,8 @@
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
         <Title>FreeType</Title>
         <Authors>popcron</Authors>
-        <Company>game-simulations</Company>
-        <RepositoryUrl>https://github.com/game-simulations/freetype</RepositoryUrl>
+        <Company>simulation-tree</Company>
+        <RepositoryUrl>https://github.com/simulation-tree/freetype</RepositoryUrl>
         <PackageId/>
     </PropertyGroup>
 
