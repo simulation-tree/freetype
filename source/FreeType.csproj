@@ -22,9 +22,9 @@
 
   <ItemGroup>
     <Content Include="bin/Debug/net9.0/FreeType.dll" Pack="true" PackagePath="tools/debug/FreeType.dll" Visible="false"/>
-    <Content Include="bin/Debug/net9.0/FreeType.xml" Pack="true" PackagePath="tools/debug/FreeType.xml" Visible="false"/>
+    <Content Include="bin/Debug/net9.0/FreeType.xml" Pack="true" PackagePath="tools/debug/FreeType.xml" Visible="false" Condition="Exists('bin/Debug/net9.0/FreeType.xml')"/>
     <Content Include="bin/Release/net9.0/FreeType.dll" Pack="true" PackagePath="tools/release/FreeType.dll" Visible="false"/>
-    <Content Include="bin/Release/net9.0/FreeType.xml" Pack="true" PackagePath="tools/release/FreeType.xml" Visible="false"/>
+    <Content Include="bin/Release/net9.0/FreeType.xml" Pack="true" PackagePath="tools/release/FreeType.xml" Visible="false" Condition="Exists('bin/Release/net9.0/FreeType.xml')"/>
     <Content Include="build/FreeType.targets" Pack="true" PackagePath="build/FreeType.targets" Visible="false"/>
   </ItemGroup>
 
