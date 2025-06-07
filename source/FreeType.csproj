@@ -1,22 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <RootNamespace>FreeType</RootNamespace>
-        <ImplicitUsings>disable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <IsAotCompatible>True</IsAotCompatible>
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <Title>FreeType</Title>
-        <Authors>popcron</Authors>
-        <Company>simulation-tree</Company>
-        <RepositoryUrl>https://github.com/simulation-tree/freetype</RepositoryUrl>
-        <PackageId/>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>FreeType</RootNamespace>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <IsAotCompatible>True</IsAotCompatible>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <Title>FreeType</Title>
+    <Authors>popcron</Authors>
+    <Company>simulation-tree</Company>
+    <RepositoryUrl>https://github.com/simulation-tree/freetype</RepositoryUrl>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="FreeTypeSharp" Version="3.0.0"/>
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FreeTypeSharp" Version="3.0.0"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin/Debug/net9.0/FreeType.dll" Pack="true" PackagePath="tools/debug/FreeType.dll" Visible="false"/>
+    <Content Include="bin/Debug/net9.0/FreeType.xml" Pack="true" PackagePath="tools/debug/FreeType.xml" Visible="false"/>
+    <Content Include="bin/Release/net9.0/FreeType.dll" Pack="true" PackagePath="tools/release/FreeType.dll" Visible="false"/>
+    <Content Include="bin/Release/net9.0/FreeType.xml" Pack="true" PackagePath="tools/release/FreeType.xml" Visible="false"/>
+    <Content Include="build/FreeType.targets" Pack="true" PackagePath="build/FreeType.targets" Visible="false"/>
+  </ItemGroup>
 
 </Project>
