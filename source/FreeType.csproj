@@ -17,12 +17,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FreeTypeSharp" Version="3.0.0"/>
+    <PackageReference Include="FreeTypeSharp" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="bin/**/*" Pack="true" PackagePath="lib" Visible="false"/>
-    <Content Include="buildTransitive/**/*" Pack="true" PackagePath="buildTransitive"/>
+    <Content Include="bin/**/*" Pack="true" PackagePath="lib" Visible="false" />
+    <Content Include="buildTransitive/**/*" Pack="true" PackagePath="buildTransitive" />
   </ItemGroup>
 
 </Project>
